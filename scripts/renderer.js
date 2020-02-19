@@ -48,7 +48,7 @@ class Renderer {
 
     // framebuffer:  canvas ctx image data
     drawSlide0(framebuffer) {
-        
+        //this is a test
     }
 
     // framebuffer:  canvas ctx image data
