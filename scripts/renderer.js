@@ -107,7 +107,7 @@ class Renderer {
 			x1 = center.x + radius * Math.cos(deg * (i+1));
 			y1 = center.x + radius * Math.sin(deg * (i+1));
 			
-			drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
 		}
     }
 
