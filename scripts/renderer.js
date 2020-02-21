@@ -57,7 +57,11 @@ class Renderer {
 
     // framebuffer:  canvas ctx image data
     drawSlide1(framebuffer) {
-
+		var cent = {x: 400, y:300};
+		var rad = 200;
+		var color = [255,0,0,255];
+		
+		this.drawCircle(cent, rad, color, framebuffer);
     }
 
     // framebuffer:  canvas ctx image data
@@ -88,7 +92,7 @@ class Renderer {
     // radius:       int
     // color:        array of int [R, G, B, A]
     // framebuffer:  canvas ctx image data
-    drawCirle(center, radius, color, framebuffer) {
+    drawCircle(center, radius, color, framebuffer) {
 		var i;
 		var n = 20;
 		var deg = 360/n;
