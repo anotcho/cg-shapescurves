@@ -77,7 +77,7 @@ class Renderer {
 
     // framebuffer:  canvas ctx image data
     drawSlide3(framebuffer) {
-		this.drawBezierCurve({x: 100, y: 200}, {x: 200, y: 500}, {x: 300, y: 500}, {x: 300, y: 300}, [255,0,0,255],framebuffer);
+		this.drawBezierCurve({x: 100, y: 200}, {x: 100, y: 300}, {x: 170, y: 500}, {x: 200, y: 500}, [255,0,0,255],framebuffer);
     }
 
     // left_bottom:  object ({x: __, y: __})
