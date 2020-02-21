@@ -94,19 +94,20 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawCircle(center, radius, color, framebuffer) {
 		var i;
-		var n = 4;
-		var deg = 360/n;
+		var n = this.num_curve_sections;
+		var deg = 360/n * 2 * Math.PI;
 		var x;
 		var y;
 		var x1;
 		var y1;
         for(i = 0; i < n; i++)
 		{
-			x1 = deg * i;
-			console.log(x1);
-			x = parseInt(center.x + radius * Math.cos(deg * i));
-			y = parseInt(center.y + radius * Math.sin(deg * i));
-			console.log(x,y);
+			x = center.x + radius * Math.cos(deg * i);
+			y = center.y + radius * Math.sin(deg * i);
+			x1 = center.x + radius * Math.cos(deg * (i+1));
+			y1 = center.x + radius * Math.sin(deg * (i+1));
+			
+			drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
 		}
     }
 
