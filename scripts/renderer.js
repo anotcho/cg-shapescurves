@@ -133,4 +133,69 @@ class Renderer {
 			}
 		}
     }
+	
+	function drawLineLow(x0, y0, x1, y1, color, framebuffer)
+{
+	var A = y1 - y0;
+	var B = -(x1 - x0);
+	var dy = 1;
+	if(A < 0)
+	{
+		dy = -1;
+		A *= -1;
+	}
+	var D = 2*A + B;
+	var D0 = 2*A;
+	var D1 = 2*A + 2*B;
+	var x = x0;
+	var y = y0;
+	
+	while(x < x1)
+	{
+		setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+		if(D <= 0)
+		{
+			D = D + D0;
+		}
+		else
+		{
+			D = D + D1;
+			y += dy;
+		}
+		x = x + 1;
+		//setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+	}
+}
+
+function drawLineHigh(x0, y0, x1, y1, color, framebuffer)
+{
+	var A = x1 - x0;
+	var B = -(y1 - y0);
+	var dy = 1;
+	if(A < 0)
+	{
+		dy = -1;
+		A *= -1;
+	}
+	var D = 2*A + B;
+	var D0 = 2*A;
+	var D1 = 2*A + 2*B;
+	var x = x0;
+	var y = y0;
+	while(y < y1)
+	{
+		setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+		if(D <= 0)
+		{
+			D = D + D0;
+		}
+		else
+		{
+			D = D + D1;
+			x += dy;
+		}
+		y = y + 1;
+		//setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+	}
+}
 };
