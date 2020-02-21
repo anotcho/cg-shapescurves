@@ -137,10 +137,10 @@ class Renderer {
 		{
 			t = hold * i;
 			t2 = hold * (i+1);
-			x = Math.ceil( Math.pow((1-t),3)*p0.x + 3 * Math.pow((1-t),2) * t * p1.x + 3 * (1-t) * Math.pow(t,2) * p2.x + Math.pow(t,3) * p3.x);
-			y = Math.ceil( Math.pow((1-t),3)*p0.y + 3 * Math.pow((1-t),2) * t * p1.y + 3 * (1-t) * Math.pow(t,2) * p2.y + Math.pow(t,3) * p3.y);
-			x1 = Math.ceil( Math.pow((1-t2),3)*p0.x + 3 * Math.pow((1-t2),2) * t2 * p1.x + 3 * (1-t2) * Math.pow(t2,2) * p2.x + Math.pow(t2,3) * p3.x);
-			y1 = Math.ceil( Math.pow((1-t2),3)*p0.y + 3 * Math.pow((1-t2),2) * t2 * p1.y + 3 * (1-t2) * Math.pow(t2,2) * p2.y + Math.pow(t2,3) * p3.y);
+			x = Math.ceil( Math.pow((1-t),3)*pt0.x + 3 * Math.pow((1-t),2) * t * pt1.x + 3 * (1-t) * Math.pow(t,2) * pt2.x + Math.pow(t,3) * pt3.x);
+			y = Math.ceil( Math.pow((1-t),3)*pt0.y + 3 * Math.pow((1-t),2) * t * pt1.y + 3 * (1-t) * Math.pow(t,2) * pt2.y + Math.pow(t,3) * pt3.y);
+			x1 = Math.ceil( Math.pow((1-t2),3)*pt.x + 3 * Math.pow((1-t2),2) * t2 * pt1.x + 3 * (1-t2) * Math.pow(t2,2) * pt2.x + Math.pow(t2,3) * pt3.x);
+			y1 = Math.ceil( Math.pow((1-t2),3)*pt0.y + 3 * Math.pow((1-t2),2) * t2 * pt1.y + 3 * (1-t2) * Math.pow(t2,2) * pt2.y + Math.pow(t2,3) * pt3.y);
 			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
 		}
     }
