@@ -48,9 +48,9 @@ class Renderer {
 
     // framebuffer:  canvas ctx image data
     drawSlide0(framebuffer) {
-        pt0 = {x: 200, y:200};
-		pt1 = {x: 600, y:400};
-		color = [255,0,0,255];
+        var pt0 = {x: 200, y:200};
+		var pt1 = {x: 600, y:400};
+		var color = [255,0,0,255];
 		
 		drawRectangle(pt0, pt1, color, framebuffer);
     }
@@ -75,8 +75,8 @@ class Renderer {
     // color:        array of int [R, G, B, A]
     // framebuffer:  canvas ctx image data
     drawRectangle(left_bottom, right_top, color, framebuffer) {
-        xhold = right_top.x - left_bottom.x;
-		yhold = right_top.y - left_bottom.y;
+        var xhold = right_top.x - left_bottom.x;
+		var yhold = right_top.y - left_bottom.y;
 		
 		drawLine(left_bottom, {x:(left_bottom.x + xhold), y: left_bottom.y}, color, framebuffer); 
     }
@@ -105,10 +105,10 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawLine(pt0, pt1, color, framebuffer)
     {
-		pt0.x = x0;
-		pt0.y = y0;
-		pt1.x = x1;
-		pt1.y = y1;
+		var x0 = pt0.x;
+		var y0 = pt0.y;
+		var x1 = pt1.x;
+		var y1 = pt1.y;
 		
         if (Math.abs(y1-y0) <= Math.abs(x1-x0))
 		{
