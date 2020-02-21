@@ -94,13 +94,13 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawCircle(center, radius, color, framebuffer) {
 		var i;
-		var n = 6;
+		var n = 4;
 		var deg = 360/n;
 		var x;
 		var y;
 		var x1;
 		var y1;
-        for(i = 0; i < n+1; i++)
+        for(i = 0; i < n; i++)
 		{
 			console.log(deg*i);
 			x = parseInt(center.x + radius * Math.cos(deg * i));
