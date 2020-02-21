@@ -58,7 +58,7 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawSlide1(framebuffer) {
 		var cent = {x: 400, y:300};
-		var rad = 200;
+		var rad = 50;
 		var color = [255,0,0,255];
 		
 		this.drawCircle(cent, rad, color, framebuffer);
@@ -76,13 +76,7 @@ class Renderer {
     }
 
     // framebuffer:  canvas ctx image data
-    drawSlide3(framebuffer) {
-		var cent = {x: 400, y:300};
-		var rad = 200;
-		var color = [255,0,0,255];
-		
-		this.drawCircle(cent, rad, color, framebuffer);
-		
+    drawSlide3(framebuffer) {		
 		this.drawLine({x: 100, y: 200}, {x: 100, y: 400}, [255,0,0,255],framebuffer);
 		this.drawLine({x: 200, y: 200}, {x: 100, y: 400}, [255,0,0,255],framebuffer);
 		this.drawLine({x: 200, y: 200}, {x: 200, y: 400}, [255,0,0,255],framebuffer);
