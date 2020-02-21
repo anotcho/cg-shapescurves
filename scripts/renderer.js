@@ -91,7 +91,7 @@ class Renderer {
     drawCirle(center, radius, color, framebuffer) {
 		var i;
 		var n = 20;
-		var deg 360/n;
+		var deg = 360/n;
 		var x;
 		var y;
 		var x1;
