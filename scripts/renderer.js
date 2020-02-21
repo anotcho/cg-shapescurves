@@ -152,7 +152,7 @@ class Renderer {
 		
 		while(x < x1)
 		{
-			this.setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+			this.setFramebufferColor(framebuffer, this.pixelIndex(x, y, framebuffer), color);
 			if(D <= 0)
 			{
 				D = D + D0;
@@ -184,7 +184,7 @@ class Renderer {
 		var y = y0;
 		while(y < y1)
 		{
-			this.setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+			this.setFramebufferColor(framebuffer, this.pixelIndex(x, y, framebuffer), color);
 			if(D <= 0)
 			{
 				D = D + D0;
@@ -205,5 +205,10 @@ class Renderer {
 		framebuffer.data[px+1] = color[1];
 		framebuffer.data[px+2] = color[2];
 		framebuffer.data[px+3] = color[3];
+	}
+	
+	pixelIndex(x, y, framebuffer)
+	{
+		return 4 * y * framebuffer.width + 4 * x;
 	}
 };
