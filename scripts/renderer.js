@@ -89,7 +89,21 @@ class Renderer {
     // color:        array of int [R, G, B, A]
     // framebuffer:  canvas ctx image data
     drawCirle(center, radius, color, framebuffer) {
-        
+		var i;
+		var n = 20;
+		var deg 360/n;
+		var x;
+		var y;
+		var x1;
+		var y1;
+        for(i = 0; i < n; i++)
+		{
+			x = center.x + radius * cos(deg * i);
+			y = center.y + radius * cos(deg * i);
+			x1 = center.x + radius * cos(deg * 2i);
+			y1 = center.y + radius * cos(deg * 2i);
+			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+		}
     }
 
     // pt0:          object ({x: __, y: __})
