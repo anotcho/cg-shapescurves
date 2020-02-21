@@ -103,6 +103,7 @@ class Renderer {
 			x1 = center.x + radius * cos(deg * 2(i));
 			y1 = center.y + radius * cos(deg * 2(i));
 			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+			console.log(i);
 		}
     }
 
