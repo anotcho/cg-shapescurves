@@ -88,9 +88,10 @@ class Renderer {
 		
 		this.drawBezierCurve({x: 465, y: 250}, {x: 460, y: 310}, {x: 565, y: 310}, {x: 565, y: 280}, [0,0,255,255],framebuffer);
 		this.drawBezierCurve({x: 465, y: 250}, {x: 460, y: 190}, {x: 565, y: 190}, {x: 565, y: 220}, [0,0,255,255],framebuffer);
-		this.drawLine({x: 5650, y: 280}, {x: 565, y: 300}, [0,0,255,255],framebuffer);
 		
 		this.drawLine({x: 600, y: 200}, {x: 600, y: 400}, [255,0,255,255],framebuffer);
+		this.drawBezierCurve({x: 600, y: 270}, {x: 610, y: 310}, {x: 690, y: 310}, {x: 690, y: 250}, [255,0,255,255],framebuffer);
+		this.drawLine({x: 690, y: 200}, {x: 690, y: 250}, [255,0,255,255],framebuffer);
     }
 
     // left_bottom:  object ({x: __, y: __})
