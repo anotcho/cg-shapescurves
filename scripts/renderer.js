@@ -104,8 +104,8 @@ class Renderer {
 		{
 			x = center.x + radius * Math.cos(deg * i * n);
 			y = center.y + radius * Math.sin(deg * i * n);
-			x1 = int(center.x + radius * Math.cos(deg * (i+1) * n));
-			y1 = int(center.y + radius * Math.sin(deg * n * (i+1)));
+			x1 = parseInt(center.x + radius * Math.cos(deg * (i+1) * n));
+			y1 = parseInt(center.y + radius * Math.sin(deg * n * (i+1)));
 			console.log(x,y,x1,y1);
 			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
 		}
