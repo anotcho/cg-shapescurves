@@ -66,7 +66,13 @@ class Renderer {
 
     // framebuffer:  canvas ctx image data
     drawSlide2(framebuffer) {
-
+		var pt0 = {x: 200, y:200};
+		var pt1 = {x: 200, y:400};
+		var pt0 = {x: 600, y:400};
+		var pt1 = {x: 600, y:200};
+		var color = [255,0,0,255];
+		
+		this.drawBezierCurve();
     }
 
     // framebuffer:  canvas ctx image data
@@ -118,7 +124,25 @@ class Renderer {
     // color:        array of int [R, G, B, A]
     // framebuffer:  canvas ctx image data
     drawBezierCurve(pt0, pt1, pt2, pt3, color, framebuffer) {
-        
+        var i;
+		var n = this.num_curve_sections;
+		var hold = 1/n;
+		var t;
+		var t2;
+		var x;
+		var y;
+		var x1;
+		var y1;
+        for(i = 0; i < n; i++)
+		{
+			t = hold * i;
+			t2 = hold * (i+1);
+			x = Math.ceil( Math.pow((1-t),3)*p0.x + 3 * Math.pow((1-t),2) * t * p1.x + 3 * (1-t) * Math.pow(t,2) * p2.x + Math.pow(t,3) * p3.x);
+			y = Math.ceil( Math.pow((1-t),3)*p0.y + 3 * Math.pow((1-t),2) * t * p1.y + 3 * (1-t) * Math.pow(t,2) * p2.y + Math.pow(t,3) * p3.y);
+			x1 = Math.ceil( Math.pow((1-t2),3)*p0.x + 3 * Math.pow((1-t2),2) * t2 * p1.x + 3 * (1-t2) * Math.pow(t2,2) * p2.x + Math.pow(t2,3) * p3.x);
+			y1 = Math.ceil( Math.pow((1-t2),3)*p0.y + 3 * Math.pow((1-t2),2) * t2 * p1.y + 3 * (1-t2) * Math.pow(t2,2) * p2.y + Math.pow(t2,3) * p3.y);
+			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+		}
     }
 
     // pt0:          object ({x: __, y: __})
