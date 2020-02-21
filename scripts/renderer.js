@@ -103,7 +103,7 @@ class Renderer {
         for(i = 0; i < n; i++)
 		{
 			console.log(deg*i);
-			comsole.log(Math.cos(deg * i),Math.sin(deg * i));
+			console.log(Math.cos(deg * i),Math.sin(deg * i));
 			x = Math.ceil(center.x + radius * Math.cos(deg * i));
 			y = Math.ceil(center.y + radius * Math.sin(deg * i));
 			x1 = Math.ceil(center.x + radius * Math.cos(deg * (i+1)));
