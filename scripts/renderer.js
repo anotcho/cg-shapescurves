@@ -78,7 +78,10 @@ class Renderer {
         var xhold = right_top.x - left_bottom.x;
 		var yhold = right_top.y - left_bottom.y;
 		
-		this.drawLine(left_bottom, {x:(left_bottom.x + xhold), y: left_bottom.y}, color, framebuffer); 
+		this.drawLine(left_bottom, {x:(left_bottom.x + xhold), y: left_bottom.y}, color, framebuffer);
+		this.drawLine(left_bottom, {x: left_bottom.x y: (left_bottom.y + yhold)}, color, framebuffer); 
+		this.drawLine(right_top, {x:(right_top.x - xhold), y: right_top.y}, color, framebuffer); 
+		this.drawLine(right_top, {x: right_top.x y: (right_top.y + yhold)}, color, framebuffer); 
     }
 
     // center:       object ({x: __, y: __})
