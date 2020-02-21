@@ -103,8 +103,8 @@ class Renderer {
         for(i = 0; i < n; i++)
 		{
 			console.log(deg*i);
-			x = parseInt(center.x + radius * Math.cos(deg * i));
-			y = parseInt(center.y + radius * Math.sin(deg * i));
+			x = parseInt((center.x + radius) * Math.cos(deg * i));
+			y = parseInt((center.y + radius) * Math.sin(deg * i));
 			console.log(x,y);
 		}
     }
