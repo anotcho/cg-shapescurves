@@ -100,7 +100,7 @@ class Renderer {
 		var y;
 		var x1;
 		var y1;
-        for(i = 0; i < 1; i++)
+        for(i = 0; i < 6; i++)
 		{
 			x = parseInt(center.x + radius * Math.cos(deg * i));
 			y = parseInt(center.y + radius * Math.sin(deg * i));
