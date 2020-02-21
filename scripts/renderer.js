@@ -48,7 +48,11 @@ class Renderer {
 
     // framebuffer:  canvas ctx image data
     drawSlide0(framebuffer) {
-        //this is a test
+        pt0 = {x: 200, y:200};
+		pt1 = {x: 600, y:400};
+		color = [255,0,0,255];
+		
+		drawRectangle(pt0, pt1, color, framebuffer);
     }
 
     // framebuffer:  canvas ctx image data
@@ -71,7 +75,10 @@ class Renderer {
     // color:        array of int [R, G, B, A]
     // framebuffer:  canvas ctx image data
     drawRectangle(left_bottom, right_top, color, framebuffer) {
-        
+        xhold = right_top.x - left_bottom.x;
+		yhold = right_top.y - left_bottom.y;
+		
+		drawLine(left_bottom, {x:(left_bottom.x + xhold), y: left_bottom.y}, color, framebuffer); 
     }
 
     // center:       object ({x: __, y: __})
@@ -98,6 +105,32 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawLine(pt0, pt1, color, framebuffer)
     {
-        // code from class here
+		pt0.x = x0;
+		pt0.y = y0;
+		pt1.x = x1;
+		pt1.y = y1;
+		
+        if (Math.abs(y1-y0) <= Math.abs(x1-x0))
+		{
+			if(x0<x1)
+			{
+				drawLineLow(x0,y0,x1,y1,color,framebuffer);
+			}
+			else
+			{
+				drawLineLow(x1,y1,x0,y0,color,framebuffer);
+			}
+		}
+		else
+		{
+			if(y0<y1)
+			{
+				drawLineHigh(x0,y0,x1,y1,color,framebuffer);
+			}
+			else
+			{
+				drawLineHigh(x1,y1,x0,y0,color,framebuffer);
+			}
+		}
     }
 };
