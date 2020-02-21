@@ -52,7 +52,7 @@ class Renderer {
 		var pt1 = {x: 600, y:400};
 		var color = [255,0,0,255];
 		
-		drawRectangle(pt0, pt1, color, framebuffer);
+		this.drawRectangle(pt0, pt1, color, framebuffer);
     }
 
     // framebuffer:  canvas ctx image data
@@ -78,7 +78,7 @@ class Renderer {
         var xhold = right_top.x - left_bottom.x;
 		var yhold = right_top.y - left_bottom.y;
 		
-		drawLine(left_bottom, {x:(left_bottom.x + xhold), y: left_bottom.y}, color, framebuffer); 
+		this.drawLine(left_bottom, {x:(left_bottom.x + xhold), y: left_bottom.y}, color, framebuffer); 
     }
 
     // center:       object ({x: __, y: __})
@@ -114,22 +114,22 @@ class Renderer {
 		{
 			if(x0<x1)
 			{
-				drawLineLow(x0,y0,x1,y1,color,framebuffer);
+				this.drawLineLow(x0,y0,x1,y1,color,framebuffer);
 			}
 			else
 			{
-				drawLineLow(x1,y1,x0,y0,color,framebuffer);
+				this.drawLineLow(x1,y1,x0,y0,color,framebuffer);
 			}
 		}
 		else
 		{
 			if(y0<y1)
 			{
-				drawLineHigh(x0,y0,x1,y1,color,framebuffer);
+				this.drawLineHigh(x0,y0,x1,y1,color,framebuffer);
 			}
 			else
 			{
-				drawLineHigh(x1,y1,x0,y0,color,framebuffer);
+				this.drawLineHigh(x1,y1,x0,y0,color,framebuffer);
 			}
 		}
     }
@@ -152,7 +152,7 @@ class Renderer {
 		
 		while(x < x1)
 		{
-			setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+			this.setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
 			if(D <= 0)
 			{
 				D = D + D0;
@@ -184,7 +184,7 @@ class Renderer {
 		var y = y0;
 		while(y < y1)
 		{
-			setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
+			this.setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
 			if(D <= 0)
 			{
 				D = D + D0;
@@ -197,5 +197,13 @@ class Renderer {
 			y = y + 1;
 			//setFramebufferColor(framebuffer, pixelIndex(x, y, framebuffer), color);
 		}
+	}
+	
+	setFramebufferColor(framebuffer, px, color)
+	{
+		framebuffer.data[px+0] = color[0];
+		framebuffer.data[px+1] = color[1];
+		framebuffer.data[px+2] = color[2];
+		framebuffer.data[px+3] = color[3];
 	}
 };
