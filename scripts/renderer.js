@@ -96,7 +96,7 @@ class Renderer {
 		var i;
 		//var n = this.num_curve_sections;
 		var n = 4;
-		var deg = (360/n) * 2 * Math.PI;
+		var deg = (360/n) * (Math.PI/180);
 		var x;
 		var y;
 		var x1;
