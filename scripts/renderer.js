@@ -68,11 +68,11 @@ class Renderer {
     drawSlide2(framebuffer) {
 		var pt0 = {x: 200, y:200};
 		var pt1 = {x: 200, y:400};
-		var pt0 = {x: 600, y:400};
-		var pt1 = {x: 600, y:200};
+		var pt2 = {x: 600, y:400};
+		var pt3 = {x: 600, y:200};
 		var color = [255,0,0,255];
 		
-		this.drawBezierCurve();
+		this.drawBezierCurve(pt0,pt1,pt2,pt3,color,framebuffer);
     }
 
     // framebuffer:  canvas ctx image data
