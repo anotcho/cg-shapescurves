@@ -20,6 +20,7 @@ class Renderer {
     // flag:  bool
     showPoints(flag) {
         this.show_points = flag;
+		this.drawSlide(this.slide_idx);
     }
     
     // slide_idx:  int
@@ -92,6 +93,14 @@ class Renderer {
 		this.drawLine({x: 600, y: 200}, {x: 600, y: 400}, [255,0,255,255],framebuffer);
 		this.drawBezierCurve({x: 600, y: 270}, {x: 610, y: 310}, {x: 690, y: 310}, {x: 690, y: 250}, [255,0,255,255],framebuffer);
 		this.drawLine({x: 690, y: 200}, {x: 690, y: 250}, [255,0,255,255],framebuffer);
+		
+		if(this.show_points == true)
+		{
+			this.drawCircle({x: 100, y: 200}, 5, [50,200,255,255], framebuffer);
+			this.drawCircle({x: 200, y: 200}, 5, [50,200,255,255], framebuffer);
+			this.drawCircle({x: 100, y: 400}, 5, [50,200,255,255], framebuffer);
+			this.drawCircle({x: 200, y: 400}, 5, [50,200,255,255], framebuffer);
+		}
     }
 
     // left_bottom:  object ({x: __, y: __})
@@ -106,6 +115,12 @@ class Renderer {
 		this.drawLine(left_bottom, {x: left_bottom.x, y: (left_bottom.y + yhold)}, color, framebuffer); 
 		this.drawLine(right_top, {x:(right_top.x - xhold), y: right_top.y}, color, framebuffer); 
 		this.drawLine(right_top, {x: right_top.x, y: (right_top.y - yhold)}, color, framebuffer); 
+		
+		if(this.show_points == true)
+		{
+			this.drawCircle(right_top, 5, [50,200,255,255], framebuffer);
+			this.drawCircle(left_bottom, 5, [50,200,255,255], framebuffer);
+		}
     }
 
     // center:       object ({x: __, y: __})
@@ -128,7 +143,23 @@ class Renderer {
 			x1 = Math.ceil(center.x + radius * Math.cos(deg * (i+1)));
 			y1 = Math.ceil(center.y + radius * Math.sin(deg * (i+1)));
 			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+			
+			if(this.show_points == true)
+			{
+				this.drawLine({x: x, y: y}, {x: center.x, y: center.y}, [50,200,255,255], framebuffer);
+			}
 		}
+		
+		/*if(this.show_points == true)
+		{
+			for(i = 0; i < n; i++)
+			{
+				x = Math.ceil(center.x + radius * Math.cos(deg * i));
+				y = Math.ceil(center.y + radius * Math.sin(deg * i));
+				console.log(this.show_points, x, y);
+				this.drawLine({x: x, y: y}, {x: center.x, y: center.y}, [50,200,255,255], framebuffer);
+			}
+		}*/
     }
 
     // pt0:          object ({x: __, y: __})
@@ -156,6 +187,21 @@ class Renderer {
 			x1 = Math.ceil( Math.pow((1-t2),3)*pt0.x + 3 * Math.pow((1-t2),2) * t2 * pt1.x + 3 * (1-t2) * Math.pow(t2,2) * pt2.x + Math.pow(t2,3) * pt3.x);
 			y1 = Math.ceil( Math.pow((1-t2),3)*pt0.y + 3 * Math.pow((1-t2),2) * t2 * pt1.y + 3 * (1-t2) * Math.pow(t2,2) * pt2.y + Math.pow(t2,3) * pt3.y);
 			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+			
+			if(this.show_points == true)
+			{
+				this.drawCircle({x: x, y: y}, 5, [50,200,255,255], framebuffer);
+			}
+		}
+		
+		if(this.show_points == true)
+		{
+			this.drawCircle(pt1, 5, [50,200,255,255], framebuffer);
+			this.drawCircle(pt2, 5, [50,200,255,255], framebuffer);
+			this.drawCircle(pt3, 5, [50,200,255,255], framebuffer);
+			this.drawLine(pt0, pt1, [50,200,255,255], framebuffer);
+			this.drawLine(pt2, pt1, [50,200,255,255], framebuffer);
+			this.drawLine(pt2, pt3, [50,200,255,255], framebuffer);
 		}
     }
 
