@@ -134,7 +134,7 @@ class Renderer {
 		}
     }
 	
-	function drawLineLow(x0, y0, x1, y1, color, framebuffer)
+	drawLineLow(x0, y0, x1, y1, color, framebuffer)
 	{
 		var A = y1 - y0;
 		var B = -(x1 - x0);
@@ -167,7 +167,7 @@ class Renderer {
 		}
 	}
 
-	function drawLineHigh(x0, y0, x1, y1, color, framebuffer)
+	drawLineHigh(x0, y0, x1, y1, color, framebuffer)
 	{
 		var A = x1 - x0;
 		var B = -(y1 - y0);
