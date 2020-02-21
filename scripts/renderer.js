@@ -80,6 +80,9 @@ class Renderer {
 		this.drawLine({x: 100, y: 200}, {x: 100, y: 400}, [255,0,0,255],framebuffer);
 		this.drawLine({x: 200, y: 200}, {x: 100, y: 400}, [255,0,0,255],framebuffer);
 		this.drawLine({x: 200, y: 200}, {x: 200, y: 400}, [255,0,0,255],framebuffer);
+		
+		this.drawLine({x: 400, y: 200}, {x: 400, y: 400}, [255,0,0,255],framebuffer);
+		this.drawLine({x: 300, y: 200}, {x: 500, y: 400}, [255,0,0,255],framebuffer);
     }
 
     // left_bottom:  object ({x: __, y: __})
