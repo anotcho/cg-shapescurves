@@ -102,10 +102,10 @@ class Renderer {
 		var y1;
         for(i = 0; i < n; i++)
 		{
-			x = center.x + radius * cos(deg * i);
-			y = center.y + radius * cos(deg * i);
-			x1 = center.x + radius * cos(deg * 2(i));
-			y1 = center.y + radius * cos(deg * 2(i));
+			x = center.x + radius * Math.cos(deg * i);
+			y = center.y + radius * Math.sin(deg * i);
+			x1 = center.x + radius * Math.cos(deg * 2(i));
+			y1 = center.y + radius * Math.sin(deg * 2(i));
 			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
 			console.log(i);
 		}
