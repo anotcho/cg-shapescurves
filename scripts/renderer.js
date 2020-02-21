@@ -81,10 +81,12 @@ class Renderer {
 		this.drawLine({x: 200, y: 200}, {x: 100, y: 400}, [255,0,0,255],framebuffer);
 		this.drawLine({x: 200, y: 200}, {x: 200, y: 400}, [255,0,0,255],framebuffer);
 		
-		this.drawCircle({x: 300, y: 250}, 50, [200,150,0,255],framebuffer);
+		this.drawCircle({x: 285, y: 250}, 50, [200,150,0,255],framebuffer);
 		
 		this.drawLine({x: 400, y: 200}, {x: 400, y: 400}, [0,255,0,255],framebuffer);
 		this.drawLine({x: 350, y: 300}, {x: 450, y: 300}, [0,255,0,255],framebuffer);
+		
+		this.drawBezierCurve({x: 500, y: 300}, {x: 500, y: 400}, {x: 600, y: 450}, {x: 600, y: 400}, [0,255,0,255],framebuffer);
     }
 
     // left_bottom:  object ({x: __, y: __})
