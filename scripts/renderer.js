@@ -94,8 +94,9 @@ class Renderer {
     // framebuffer:  canvas ctx image data
     drawCircle(center, radius, color, framebuffer) {
 		var i;
-		var n = this.num_curve_sections;
-		var deg = 360/n * 2 * Math.PI;
+		//var n = this.num_curve_sections;
+		var n = 4;
+		var deg = (360/n) * 2 * Math.PI;
 		var x;
 		var y;
 		var x1;
