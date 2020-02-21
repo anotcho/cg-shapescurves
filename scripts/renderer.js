@@ -52,7 +52,7 @@ class Renderer {
 		var pt1 = {x: 600, y:400};
 		var color = [255,0,0,255];
 		
-		drawRectangle(pt0, pt1, color, framebuffer);
+		//drawRectangle(pt0, pt1, color, framebuffer);
     }
 
     // framebuffer:  canvas ctx image data
