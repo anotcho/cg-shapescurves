@@ -96,10 +96,20 @@ class Renderer {
 		
 		if(this.show_points == true)
 		{
-			this.drawCircle({x: 100, y: 200}, 5, [50,200,255,255], framebuffer);
-			this.drawCircle({x: 200, y: 200}, 5, [50,200,255,255], framebuffer);
-			this.drawCircle({x: 100, y: 400}, 5, [50,200,255,255], framebuffer);
-			this.drawCircle({x: 200, y: 400}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 100, y: 200}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 200, y: 200}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 100, y: 400}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 200, y: 400}, 5, [50,200,255,255], framebuffer);
+			
+			this.drawPoints({x: 400, y: 200}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 400, y: 400}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 350, y: 300}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 450, y: 300}, 5, [50,200,255,255], framebuffer);
+			
+			this.drawPoints({x: 600, y: 200}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 600, y: 400}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 690, y: 250}, 5, [50,200,255,255], framebuffer);
+			this.drawPoints({x: 690, y: 200}, 5, [50,200,255,255], framebuffer);
 		}
     }
 
@@ -118,8 +128,8 @@ class Renderer {
 		
 		if(this.show_points == true)
 		{
-			this.drawCircle(right_top, 5, [50,200,255,255], framebuffer);
-			this.drawCircle(left_bottom, 5, [50,200,255,255], framebuffer);
+			this.drawPoints(right_top, 5, [50,200,255,255], framebuffer);
+			this.drawPoints(left_bottom, 5, [50,200,255,255], framebuffer);
 		}
     }
 
@@ -147,19 +157,34 @@ class Renderer {
 			if(this.show_points == true)
 			{
 				this.drawLine({x: x, y: y}, {x: center.x, y: center.y}, [50,200,255,255], framebuffer);
+				this.drawPoints({x: x, y: y}, 5, [50,200,255,255], framebuffer);
+				//this.drawPoints({x: x, y: y}, radius, color, framebuffer);
 			}
 		}
-		
-		/*if(this.show_points == true)
+    }
+	
+	drawPoints(center, radius, color, framebuffer) {
+		var i;
+		var n = this.num_curve_sections;
+		//var n = 4;
+		var deg = (360/n) * (Math.PI/180);
+		var x;
+		var y;
+		var x1;
+		var y1;
+        for(i = 0; i < n; i++)
 		{
-			for(i = 0; i < n; i++)
+			x = Math.ceil(center.x + radius * Math.cos(deg * i));
+			y = Math.ceil(center.y + radius * Math.sin(deg * i));
+			x1 = Math.ceil(center.x + radius * Math.cos(deg * (i+1)));
+			y1 = Math.ceil(center.y + radius * Math.sin(deg * (i+1)));
+			this.drawLine({x: x, y: y}, {x: x1, y: y1}, color, framebuffer);
+			
+			if(this.show_points == true)
 			{
-				x = Math.ceil(center.x + radius * Math.cos(deg * i));
-				y = Math.ceil(center.y + radius * Math.sin(deg * i));
-				console.log(this.show_points, x, y);
 				this.drawLine({x: x, y: y}, {x: center.x, y: center.y}, [50,200,255,255], framebuffer);
 			}
-		}*/
+		}
     }
 
     // pt0:          object ({x: __, y: __})
@@ -190,15 +215,15 @@ class Renderer {
 			
 			if(this.show_points == true)
 			{
-				this.drawCircle({x: x, y: y}, 5, [50,200,255,255], framebuffer);
+				this.drawPoints({x: x, y: y}, 5, [50,200,255,255], framebuffer);
 			}
 		}
 		
 		if(this.show_points == true)
 		{
-			this.drawCircle(pt1, 5, [50,200,255,255], framebuffer);
-			this.drawCircle(pt2, 5, [50,200,255,255], framebuffer);
-			this.drawCircle(pt3, 5, [50,200,255,255], framebuffer);
+			this.drawPoints(pt1, 5, [50,200,255,255], framebuffer);
+			this.drawPoints(pt2, 5, [50,200,255,255], framebuffer);
+			this.drawPoints(pt3, 5, [50,200,255,255], framebuffer);
 			this.drawLine(pt0, pt1, [50,200,255,255], framebuffer);
 			this.drawLine(pt2, pt1, [50,200,255,255], framebuffer);
 			this.drawLine(pt2, pt3, [50,200,255,255], framebuffer);
